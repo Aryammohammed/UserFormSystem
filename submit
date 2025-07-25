@@ -1,0 +1,28 @@
+<?php
+session_start(); 
+
+$name = $_POST["name"] ?? "";
+$age = $_POST["age"] ?? "";
+
+$conn = new mysqli("localhost", "root", "", "userdata");
+
+if ($conn->connect_error) {
+  die("❌ فشل الاتصال: " . $conn->connect_error);
+}
+
+$stmt = $conn->prepare("INSERT INTO users (name, age) VALUES (?, ?)");
+$stmt->bind_param("ss", $name, $age);
+
+if ($stmt->execute()) {
+   $_SESSION["name"] = $name;
+  $_SESSION["age"] = $age;
+
+  header("Location: result.php");
+  exit();
+} else {
+  echo "❌ خطأ: " . $stmt->error;
+}
+
+$stmt->close();
+$conn->close();
+?>
