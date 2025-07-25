@@ -1,0 +1,49 @@
+<?php
+session_start(); 
+
+$name = $_SESSION["name"] ?? "";
+$age = $_SESSION["age"] ?? "";
+?>
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>النتيجة</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .message-box {
+      font-size: 20px;
+      color: green;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .back-button {
+      display: block;
+      margin-top: 20px;
+      font-size: 16px;
+      text-decoration: none;
+      color: #0066cc;
+    }
+  </style>
+</head>
+<body>
+  <div class="message-box">
+    ✅ تم إرسال البيانات بنجاح!<br>
+    الاسم: <?php echo htmlspecialchars($name); ?><br>
+    العمر: <?php echo htmlspecialchars($age); ?><br>
+ 
+  </div>
+</body>
+</html>
