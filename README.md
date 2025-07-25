@@ -23,7 +23,7 @@ form_project/
    CREATE TABLE users (
      id INT AUTO_INCREMENT PRIMARY KEY,
      name VARCHAR(255),
-     age VARCHAR(255)
+     age INT
    );
 Place the project folder inside your server directory (e.g., htdocs/form_project).
 
